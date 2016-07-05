@@ -38,6 +38,7 @@ $(function() {
             }
         });
 
+
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
@@ -72,8 +73,8 @@ $(function() {
             $('a.menu-icon-link').trigger('click');
             expect($('body').attr('class')).toBe('menu-hidden');
         });
-
     });
+
           
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
@@ -92,27 +93,25 @@ $(function() {
         });
     });
 
+
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.*/
-        var feedCurrent;
-        var feedNew;
-
+        var feedCur;
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                feedCurrent = $('.feed').text();
-                loadFeed(1, function() {
-                    feedNew = $('.feed').text();
-                    done();
-                });
+            feedCur = $('.feed').text();
+            loadFeed(1, function() {
+            done();
             });
         });
-        it('loads content actually changes', function(done) {
-            expect(feedcontent1).not.toBe(feedcontent2);
+                
+        it('a new feed is loaded', function(done) {
+            expect(feedCur).not.toBe($('.feed').text());
             done();
         }); 
     });
+
 
 }());
