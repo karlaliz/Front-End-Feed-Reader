@@ -33,7 +33,6 @@ $(function() {
         it('has a URL defined and is no empty', function(){
             for (var i = 0; i < allFeeds.length; i++){
                 expect(allFeeds[i].url).toBeDefined();
-                console.log(allFeeds[i].url)
                 expect(allFeeds[i].url.length).toBeTruthy();
             }
         });
